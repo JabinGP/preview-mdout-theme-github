@@ -7,27 +7,126 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>使用mdout转换的html</title>
     <!-- 添加页面样式 -->
-    <link rel="stylesheet" href="{{.ThemePath}}/css/page.css">
+    <link rel="stylesheet" href="css/page.css">
     <!-- 添加hljs样式 -->
-    <link rel="stylesheet" href="{{.ThemePath}}/css/hljs.css">
+    <link rel="stylesheet" href="css/hljs.css">
     <!-- 在 hljs 和 page 之后以实现样式覆盖 -->
-    <link rel="stylesheet" href="{{.ThemePath}}/css/wrap.css">
+    <link rel="stylesheet" href="css/wrap.css">
 
     <!-- 添加HLJS代码段语法高亮库 -->
-    <script type="text/javascript" src="{{.ThemePath}}/lib/Highlight/highlight.pack.js"></script>
+    <script type="text/javascript" src="lib/Highlight/highlight.pack.js"></script>
 
     <!-- JabinGP：这个必须放在HLJS后面，不然会导致数学公式失效 -->
     <!-- 添加MathJax数学公式显示库 -->
-    <script src="{{.ThemePath}}/lib/MathJax-2.6.1/MathJax.js?config=TeX-AMS_CHTML"></script>
+    <script src="lib/MathJax-2.6.1/MathJax.js?config=TeX-AMS_CHTML"></script>
 
     <!-- 添加 mermaid.js 库-->
-    <script src="{{.ThemePath}}/lib/mermaid/mermaid.js"></script>
+    <script src="lib/mermaid/mermaid.js"></script>
 </head>
 
 <body>
     <div id="jabingp" style="display: none;">渲染开始</div>
     <div class="markdown-body">
-        {{.MarkdownBody}}
+<h1>测试标题</h1>
+<h2>测试二级标题</h2>
+<h3>测试三级标题</h3>
+<h4>测试四级标题</h4>
+<ul>
+<li>测试无序列表1</li>
+<li>测试无序列表2</li>
+</ul>
+<ol>
+<li>测试有序列表1</li>
+<li>测试有序列表2</li>
+</ol>
+<ul>
+<li>测试嵌套
+<ol>
+<li>测试嵌套第二次
+<ul>
+<li>测试嵌套第三层</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>测试引用</p>
+</blockquote>
+<p>测试表格</p>
+<table>
+<thead>
+<tr>
+<th>标题1</th>
+<th>标题2</th>
+<th>标题3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本1</td>
+<td>文本2</td>
+<td>文本3</td>
+</tr>
+<tr>
+<td>文本4</td>
+<td>文本5</td>
+<td>文本6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这是加粗的文字</strong><br />
+<em>这是倾斜的文字</em><br />
+<em><strong>这是斜体加粗的文字</strong></em><br />
+<s>这是加删除线的文字</s></p>
+<p><img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_86d58ae1.png" alt="百度图片" /></p>
+<p><a href="https://github.com/JabinGP/mdout">测试超链接</a></p>
+<p><code>测试代码段高亮</code></p>
+<p>测试代码块高亮</p>
+<pre><code>package main
+
+import (
+    &quot;fmt&quot;
+)
+
+func main() {
+    fmt.Println(&quot;Hello Mdout&quot;)
+}
+</code></pre>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+
+int main(){
+    print(&quot;Hello world.&quot;);
+    return 0;
+}
+</code></pre>
+<p>测试 MathJax</p>
+<p>这是一个行中公式$\frac{n!}{k!(n-k)!} = \\binom{n}{k}$行中公式</p>
+<p>$$
+\\frac{n!}{k!(n-k)!} = \\binom{n}{k}
+$$</p>
+<p>测试 mermaid</p>
+<div class="mermaid">
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+</div>
+<div class="mermaid">
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts<br/>prevail...
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+</div>
+
     </div>
     <!-- 调用mermaid.js -->
     <script type="text/javascript">
